@@ -95,6 +95,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 " Color Schemes
 "--------------
 Bundle 'rickharris/vim-blackboard'
+Bundle 'vim-scripts/desertEx'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'rickharris/vim-monokai'
 Bundle 'tpope/vim-vividchalk'

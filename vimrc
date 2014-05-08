@@ -14,12 +14,13 @@ syntax on
 "--------
 " color scheme
 set background=dark
-color solarized
+color desertEx
 
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+set cursorline
+" set cursorcolumn
 
 " search
 set incsearch
@@ -169,6 +170,16 @@ let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 set completeopt-=preview
+
+" delimitMate
+let delimitMate_matchpairs = "(:),[:],{:}"
+au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+
+let delimitMate_expand_cr = 1
+au FileType mail let b:delimitMate_expand_cr = 1
+
+let delimitMate_smart_quotes = 0
+au FileType tcl let b:delimitMate_smart_quotes = 1
 
 imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
