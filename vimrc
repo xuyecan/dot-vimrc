@@ -174,10 +174,8 @@ set completeopt-=preview
 " delimitMate
 let delimitMate_matchpairs = "(:),[:],{:}"
 au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-
 let delimitMate_expand_cr = 1
 au FileType mail let b:delimitMate_expand_cr = 1
-
 let delimitMate_smart_quotes = 0
 au FileType tcl let b:delimitMate_smart_quotes = 1
 
