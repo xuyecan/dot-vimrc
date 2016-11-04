@@ -8,19 +8,33 @@ filetype plugin indent on
 
 " enable syntax hightlight and completion
 syntax on
+set wrap
+set clipboard=unnamed
+highlight WhitespaceEOL ctermbg=red guibg=red
+
+" auto switch input method
+" set noimdisable
+" set iminsert=0
+" set imsearch=0
+au InsertEnter * set noimdisable
+au InsertLeave * set imdisable
 
 "--------
 " Vim UI
 "--------
-" color scheme
 set background=dark
-color desertEx
+" color scheme
+" color blackboard
+" color fisa
+" color desertEx
+" color desert
+" color slate
 
 " highlight current line
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
+" au WinLeave * set nocursorline nocursorcolumn
+" au WinEnter * set cursorline cursorcolumn
 set cursorline
-" set cursorcolumn
+set cursorcolumn
 
 " search
 set incsearch
@@ -37,7 +51,6 @@ set backspace=indent,eol,start                                    " More powerfu
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
 set mouse=a                                                       " use mouse in all modes
 set report=0                                                      " always report number of lines changed                "
-set nowrap                                                        " dont wrap lines
 set scrolloff=5                                                   " 5 lines above/below cursor when scrolling
 set number                                                        " show line numbers
 set showmatch                                                     " show matching bracket (briefly jump)
@@ -63,7 +76,7 @@ autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=12
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
+autocmd FileType html,xml,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 
 " syntax support
@@ -176,7 +189,6 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 let delimitMate_expand_cr = 1
 au FileType mail let b:delimitMate_expand_cr = 1
-let delimitMate_smart_quotes = 0
 au FileType tcl let b:delimitMate_smart_quotes = 1
 
 imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
@@ -203,14 +215,31 @@ let g:SuperTabRetainCompletionType=2
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_max_depth = 40
+
 
 " Keybindings for plugin toggle
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
+
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+let g:tagbar_left = 1
+
 nmap <F5> :TagbarToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
-nmap <F3> :GundoToggle<cr>
-nmap <F4> :IndentGuidesToggle<cr>
+" nmap <F3> :GundoToggle<cr>
+" nmap <F4> :IndentGuidesToggle<cr>
+nmap <F4> :SrcExplToggle<cr>
+let g:Srcexpl_winHeight = 8
+let g:SrcExpl_refreshTime = 100
+let g:SrcExpl_jumpKey = "<ENTER>"
+let g:SrcExpl_gobackKey = "<SPACE>"
+let g:SrcExpl_pluginList = [
+         \ "__Tag_List__",
+                 \ "_NERD_tree_"
+                     \ ]
+
+set tags=tags;/
 nmap  <D-/> :
 nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
@@ -275,3 +304,9 @@ if has("gui_running")
     map <D-9> 9gt
     map <D-0> :tablast<CR>
 endif
+
+"if filereadable("cscope.out")
+    "cs add cscope.out
+"elseif $CSCOPE_DB != ""
+    "cs add $CSCOPE_DB
+"endif

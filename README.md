@@ -1,2 +1,5 @@
+Personal vim config.
 
-图个方便，私用。
+* :BundleClean to clean up unused plugins
+* :BundleInstall to install newly added plugins
+* :BundleInstall! to upgrade all plugins
