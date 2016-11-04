@@ -30,9 +30,6 @@ Bundle 'ervandew/supertab'
 Bundle 'edsono/vim-matchit'
 Bundle 'Lokaltog/vim-easymotion'
 
-" deal with ime problem
-Bundle 'hongqn/vim-osx-ime'
-
 "--------------
 " Fast editing
 "--------------
