@@ -36,7 +36,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 " Bundle 'sjl/gundo.vim'
-" Bundle 'godlygeek/tabular'
+Bundle 'godlygeek/tabular'
 " Bundle 'nathanaelkane/vim-indent-guides'
 
 "--------------
