@@ -1,7 +1,7 @@
 ### /Users/maple/.gitignore-boilerplates/Global/OSX.gitignore
 
 .DS_Store
-Icon
+Icon
 
 # Thumbnails
 ._*
@@ -19,4 +19,5 @@ Session.vim
 .netrwhist
 
 # bundles installed should be ignored
-bundle/
+/bundle/*
+!/bundle/vundle
